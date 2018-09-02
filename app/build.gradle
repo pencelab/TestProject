@@ -9,7 +9,7 @@ android {
         testprojectconf {
             keyAlias 'testprojectkey'
             keyPassword 'mmP7hGyE3z'
-            storeFile file('D:/Escritorio/testproject.keystore')
+            storeFile file('D:/Documentos/Pencelab/TestProject/testproject.keystore')
             storePassword 'mmP7hGyE3z'
         }
     }
