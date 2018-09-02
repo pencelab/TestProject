@@ -5,14 +5,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    signingConfigs {
-        testprojectconf {
-            keyAlias 'testprojectkey'
-            keyPassword 'mmP7hGyE3z'
-            storeFile file('D:/Documentos/Pencelab/TestProject/testproject.keystore')
-            storePassword 'mmP7hGyE3z'
-        }
-    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.pencelab.testproject"
@@ -26,7 +18,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.testprojectconf
         }
     }
 }
