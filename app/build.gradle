@@ -10,8 +10,11 @@ android {
         applicationId "com.pencelab.testproject"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 7
-        versionName "1.6"
+
+        versionCode System.getenv("BUILD_NUMBER") as Integer ?: 0
+        versionName "1.0." + versionCode
+        project.ext.set("archivesBaseName", "TestProject-" + versionName)
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
