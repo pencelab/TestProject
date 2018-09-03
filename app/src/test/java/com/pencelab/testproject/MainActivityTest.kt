@@ -8,7 +8,6 @@ import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows
 import org.robolectric.shadows.ShadowActivity
-import org.robolectric.shadows.ShadowIntent
 import android.content.Intent
 import org.robolectric.fakes.RoboMenuItem
 import org.junit.Assert.*
@@ -17,7 +16,7 @@ import org.junit.Assert.*
 @RunWith(RobolectricTestRunner::class)
 class MainActivityTest {
 
-    lateinit var mainActivity: MainActivity
+    private lateinit var mainActivity: MainActivity
 
     @Before
     fun setUp(){
@@ -29,7 +28,7 @@ class MainActivityTest {
         val item = RoboMenuItem(R.id.menu_google_play)
         this.mainActivity.onOptionsItemSelected(item)
         val shadowActivity: ShadowActivity = Shadows.shadowOf(this.mainActivity)
-        val startedIntent: Intent = shadowActivity.getNextStartedActivity()
+        val startedIntent: Intent = shadowActivity.nextStartedActivity
         assertEquals(startedIntent.action, Intent.ACTION_VIEW)
     }
 }

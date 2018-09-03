@@ -31,10 +31,4 @@ class ExampleUnitTest {
         assertEquals(4.0, Utils.divide(8, 0), .0)
     }
 
-    @Test
-    fun shouldFail(){
-        assertEquals(9, Utils.multiply(4, 2))
-    }
-
-
 }
