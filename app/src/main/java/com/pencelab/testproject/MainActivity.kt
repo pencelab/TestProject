@@ -14,14 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textViewVersion.setText(this.getApplicationVersion())
-    }
-
-    fun getApplicationVersion() : String {
-        val versionCode = BuildConfig.VERSION_CODE
-        val versionName = BuildConfig.VERSION_NAME
-
-        return "Version: $versionName (code $versionCode)"
+        textViewVersion.text = this.getApplicationVersion()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -36,14 +29,21 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun openMarket(){
+    private fun getApplicationVersion() : String {
+        val versionCode = BuildConfig.VERSION_CODE
+        val versionName = BuildConfig.VERSION_NAME
+
+        return "Version: $versionName (code $versionCode)"
+    }
+
+    private fun openMarket(){
         try {
-            val playstoreuri: Uri = Uri.parse("market://details?id=" + packageName)
-            val intent = Intent(Intent.ACTION_VIEW, playstoreuri)
+            val playStoreURI: Uri = Uri.parse("market://details?id=$packageName")
+            val intent = Intent(Intent.ACTION_VIEW, playStoreURI)
             startActivity(intent)
         }catch (exp:Exception){
-            val playstoreuri: Uri = Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)
-            val intent = Intent(Intent.ACTION_VIEW, playstoreuri)
+            val playStoreURI: Uri = Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+            val intent = Intent(Intent.ACTION_VIEW, playStoreURI)
             startActivity(intent)
         }
     }
